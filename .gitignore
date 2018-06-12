@@ -1,0 +1,8 @@
+.vs/
+bin/
+obj/
+output/
+*.user
+unity/
+*.nupkg
+**/packages/*
