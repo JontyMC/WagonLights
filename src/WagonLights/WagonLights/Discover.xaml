@@ -5,7 +5,8 @@
              x:Class="WagonLights.Discover"
              Title="Discover">
     <ContentPage.Content>
-        <ListView ItemsSource="{Binding Devices}">
+        <ListView ItemsSource="{Binding Devices}" IsPullToRefreshEnabled="True" RefreshCommand="{Binding Refresh}"
+                  IsRefreshing="{Binding DiscoveringDevices}" ItemTapped="{Binding DeviceTapped}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextCell Text="{Binding Name}" />

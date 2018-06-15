@@ -1,16 +1,15 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using Plugin.BLE.Abstractions.Contracts;
 
 namespace WagonLights.ViewModels
 {
     public class DeviceViewModel : INotifyPropertyChanged
     {
-        IDevice device;
+        public IDevice Device { get; }
 
         public DeviceViewModel(IDevice device)
         {
-            this.device = device;
+            Device = device;
             Name = device.Name ?? "Unknown";
         }
 

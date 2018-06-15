@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using WagonLights.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
