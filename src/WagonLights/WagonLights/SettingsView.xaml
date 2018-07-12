@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:wagonLights="clr-namespace:WagonLights;assembly=WagonLights"
+             x:Class="WagonLights.SettingsView"
+             Title="Settings">
+  <ContentPage.Content>
+    <StackLayout>
+      <wagonLights:WagonStatus/>
+      <Label Text="Brightness"/>
+      <Slider x:Name="Brightness" Maximum="255" Minimum="0"  />
+      <Label Text="Speed"/>
+      <Slider x:Name="Speed" Maximum="255" Minimum="0" />
+      <Label Text="Width"/>
+      <Slider x:Name="Width" Maximum="20" Minimum="1" />
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

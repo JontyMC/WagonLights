@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Grid  xmlns="http://xamarin.com/schemas/2014/forms" 
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:wagonLights="clr-namespace:WagonLights;assembly=WagonLights"
+       x:Class="WagonLights.WagonStatus">
+  <Grid.RowDefinitions>
+    <RowDefinition Height="Auto"/>
+  </Grid.RowDefinitions>
+  <Grid.ColumnDefinitions>
+    <ColumnDefinition />
+    <ColumnDefinition />
+  </Grid.ColumnDefinitions>
+  <Label Grid.Row="0" Grid.Column="0" Text="Connected" IsVisible="{Binding Connected, Source={x:Static wagonLights:App.Wagon}}"/>
+  <Label Grid.Row="0" Grid.Column="0" Text="Disconnected" IsVisible="{Binding Connected, Source={x:Static wagonLights:App.Wagon}, Converter={StaticResource negateBoolean}}"/>
+  <Label Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="End" Text="{Binding Temperature, Source={x:Static wagonLights:App.Wagon}}" IsVisible="{Binding Connected, Source={x:Static wagonLights:App.Wagon}}"/>
+</Grid>
