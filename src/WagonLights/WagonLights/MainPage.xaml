@@ -2,7 +2,9 @@
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:local="clr-namespace:WagonLights"
             x:Class="WagonLights.MainPage">
-  <local:ProgramsView />
-  <local:SettingsView />
-  <local:PalettesView />
+    <local:ProgramsView />
+    <local:VJView />
+    <local:SettingsView />
+    <local:PalettesView />
+    <local:CustomView />
 </TabbedPage>

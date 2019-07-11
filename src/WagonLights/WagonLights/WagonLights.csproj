@@ -18,6 +18,12 @@
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="MainPage.xaml.cs">
       <DependentUpon>*.xaml</DependentUpon>
     </Compile>
+    <Compile Update="CustomView.xaml.cs">
+      <DependentUpon>CustomView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="VJView.xaml.cs">
+      <DependentUpon>VJView.xaml</DependentUpon>
+    </Compile>
     <Compile Update="SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>

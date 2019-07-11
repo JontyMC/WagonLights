@@ -8,6 +8,7 @@ using Plugin.BLE;
 using Plugin.BLE.Abstractions;
 using Plugin.BLE.Abstractions.Contracts;
 using Polly;
+using WagonLights.ViewModels;
 
 namespace WagonLights.Wagon
 {
@@ -23,6 +24,11 @@ namespace WagonLights.Wagon
         ICharacteristic programCharacteristic;
         ICharacteristic brightnessCharacteristic;
         ICharacteristic paletteCharacteristic;
+        ICharacteristic speedCharacteristic;
+        ICharacteristic widthCharacteristic;
+        //ICharacteristic resetCharacteristic;
+        ICharacteristic vjCharacteristic;
+        ICharacteristic customCharacteristic;
 
         readonly Policy retryForever = Policy
             .Handle<Exception>()
@@ -61,6 +67,21 @@ namespace WagonLights.Wagon
                         case WagonCommandType.Palette:
                             await paletteCharacteristic.WriteAsync(command.Command);
                             break;
+                        case WagonCommandType.Speed:
+                            await speedCharacteristic.WriteAsync(command.Command);
+                            break;
+                        case WagonCommandType.Width:
+                            await widthCharacteristic.WriteAsync(command.Command);
+                            break;
+                        //case WagonCommandType.Reset:
+                        //    await resetCharacteristic.WriteAsync(command.Command);
+                        //    break;
+                        case WagonCommandType.VJ:
+                            await vjCharacteristic.WriteAsync(command.Command);
+                            break;
+                        case WagonCommandType.Custom:
+                            await customCharacteristic.WriteAsync(command.Command);
+                            break;
                     }
                 }
                 catch (Exception)
@@ -86,6 +107,12 @@ namespace WagonLights.Wagon
                     programCharacteristic = characs[1];
                     brightnessCharacteristic = characs[2];
                     paletteCharacteristic = characs[3];
+                    speedCharacteristic = characs[4];
+                    widthCharacteristic = characs[5];
+                    //resetCharacteristic = characs[6];
+                    vjCharacteristic = characs[6];
+                    customCharacteristic = characs[7];
+
                     tempCharacteristic.ValueUpdated += (x, y) =>
                     {
                         Temperature = y.Characteristic.StringValue + "°C";
@@ -114,8 +141,34 @@ namespace WagonLights.Wagon
             });
         }
 
-        int lastSetBrightness = 0;
+        public void SetSpeed(int value)
+        {
+            commands.Add(new WagonCommand
+            {
+                Type = WagonCommandType.Speed,
+                Command = BitConverter.GetBytes(value)
+            });
+        }
 
+        public void SetWidth(int value)
+        {
+            commands.Add(new WagonCommand
+            {
+                Type = WagonCommandType.Width,
+                Command = BitConverter.GetBytes(value)
+            });
+        }
+
+        public void Reset()
+        {
+            commands.Add(new WagonCommand
+            {
+                Type = WagonCommandType.Reset,
+                Command = BitConverter.GetBytes(1)
+            });
+        }
+
+        int lastSetBrightness;
         public void SetBrightness(int value)
         {
             var current = Interlocked.Increment(ref lastSetBrightness);
@@ -160,5 +213,31 @@ namespace WagonLights.Wagon
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public void SetVJ(int value)
+        {
+            commands.Add(new WagonCommand
+            {
+                Type = WagonCommandType.VJ,
+                Command = BitConverter.GetBytes(value)
+            });
+        }
+
+        public void SetCustomPalette(int[] palette)
+        {
+            foreach (var color in palette)
+            {
+                commands.Add(new WagonCommand
+                {
+                    Type = WagonCommandType.Custom,
+                    Command = BitConverter.GetBytes(color)
+                });
+            }
+            commands.Add(new WagonCommand
+            {
+                Type = WagonCommandType.Custom,
+                Command = BitConverter.GetBytes(99)
+            });
+        }
     }
 }

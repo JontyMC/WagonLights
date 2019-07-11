@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:wagonLights="clr-namespace:WagonLights;assembly=WagonLights"
+             x:Class="WagonLights.CustomView"
+             Title="Custom">
+    <ContentPage.Content>
+        <StackLayout>
+            <wagonLights:WagonStatus/>
+            <Picker x:Name="DefaultColors" Title="Select a color" ItemsSource="{Binding DefaultColors}" SelectedItem="{Binding SelectedDefaultColor}" ItemDisplayBinding="{Binding Name}" />
+            <Button x:Name="Add" Text="Add" Margin="0,0,0,20"/>
+            <Button x:Name="Confirm" Text="Confirm" Margin="0,0,0,20"/>
+            <Button x:Name="Reset" Text="Reset" Margin="0,0,0,20"/>
+            <ListView x:Name="SelectedColors" ItemsSource="{Binding SelectedColors}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Name}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

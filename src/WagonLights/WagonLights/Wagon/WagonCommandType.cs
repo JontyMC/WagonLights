@@ -4,6 +4,11 @@
     {
         Program,
         Brightness,
-        Palette
+        Palette,
+        Speed,
+        Width,
+        Reset,
+        VJ,
+        Custom
     }
 }

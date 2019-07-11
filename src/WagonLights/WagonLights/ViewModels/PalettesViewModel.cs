@@ -10,7 +10,8 @@ namespace WagonLights.ViewModels
             new ProgramViewModel { Id = 0, Name = "LGBT"},
             new ProgramViewModel { Id = 1, Name = "RGB"},
             new ProgramViewModel { Id = 2, Name = "England"},
-            new ProgramViewModel { Id = 2, Name = "Sweden"}
+            new ProgramViewModel { Id = 3, Name = "Sweden"},
+            new ProgramViewModel { Id = 4, Name = "Custom"}
         });
 
         ProgramViewModel selectedPalette;

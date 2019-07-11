@@ -14,6 +14,9 @@ namespace WagonLights
 		    var vm = new ProgramsViewModel();
 		    BindingContext = vm;
 		    Brightness.ValueChanged += (x, y) => App.Wagon.SetBrightness(Convert.ToInt32(y.NewValue));
-		}
+		    SpeedConfirm.Clicked += (x, y) => App.Wagon.SetSpeed(Convert.ToInt32(Speed.Text));
+		    WidthConfirm.Clicked += (x, y) => App.Wagon.SetWidth(Convert.ToInt32(Width.Text));
+		    Reset.Clicked += (x, y) => App.Wagon.Reset();
+        }
 	}
 }
