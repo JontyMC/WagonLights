@@ -600,43 +600,43 @@ void setupWagonService(void)
   wagonCharacteristic2.setProperties(CHR_PROPS_WRITE);
   wagonCharacteristic2.setPermission(SECMODE_OPEN, SECMODE_OPEN);
   wagonCharacteristic2.setFixedLen(20);
- // wagonCharacteristic2.setWriteCallback(*write_cb);
+  wagonCharacteristic2.setWriteCallback(*write_cb);
   wagonCharacteristic2.begin();
 
   wagonCharacteristic3.setProperties(CHR_PROPS_WRITE);
   wagonCharacteristic3.setPermission(SECMODE_OPEN, SECMODE_OPEN);
   wagonCharacteristic3.setFixedLen(20);
- // wagonCharacteristic3.setWriteCallback(*write_cb2);
+  wagonCharacteristic3.setWriteCallback(*write_cb2);
   wagonCharacteristic3.begin();
 
   wagonCharacteristic4.setProperties(CHR_PROPS_WRITE);
   wagonCharacteristic4.setPermission(SECMODE_OPEN, SECMODE_OPEN);
   wagonCharacteristic4.setFixedLen(20);
-  //wagonCharacteristic4.setWriteCallback(*write_cb3);
+  wagonCharacteristic4.setWriteCallback(*write_cb3);
   wagonCharacteristic4.begin();
 
   wagonCharacteristic5.setProperties(CHR_PROPS_WRITE);
   wagonCharacteristic5.setPermission(SECMODE_OPEN, SECMODE_OPEN);
   wagonCharacteristic5.setFixedLen(20);
-  //wagonCharacteristic5.setWriteCallback(*write_cb4);
+  wagonCharacteristic5.setWriteCallback(*write_cb4);
   wagonCharacteristic5.begin();
 
   wagonCharacteristic6.setProperties(CHR_PROPS_WRITE);
   wagonCharacteristic6.setPermission(SECMODE_OPEN, SECMODE_OPEN);
   wagonCharacteristic6.setFixedLen(20);
-  //wagonCharacteristic6.setWriteCallback(*write_cb5);
+  wagonCharacteristic6.setWriteCallback(*write_cb5);
   wagonCharacteristic6.begin();
 
   wagonCharacteristic8.setProperties(CHR_PROPS_WRITE);
   wagonCharacteristic8.setPermission(SECMODE_OPEN, SECMODE_OPEN);
   wagonCharacteristic8.setFixedLen(20);
-  //wagonCharacteristic8.setWriteCallback(*write_cb7);
+  wagonCharacteristic8.setWriteCallback(*write_cb7);
   wagonCharacteristic8.begin();
 
   wagonCharacteristic9.setProperties(CHR_PROPS_WRITE);
   wagonCharacteristic9.setPermission(SECMODE_OPEN, SECMODE_OPEN);
   wagonCharacteristic9.setFixedLen(20);
-  //wagonCharacteristic9.setWriteCallback(*write_cb8);
+  wagonCharacteristic9.setWriteCallback(*write_cb8);
   wagonCharacteristic9.begin();
 }
 
@@ -867,3 +867,4 @@ void setupFlowers() {
   flowerPalette[52] = yellow;
   flowerPalette[53] = purple;
 }
+
